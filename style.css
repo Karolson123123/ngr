@@ -183,31 +183,46 @@ nav > div {
 /* #endregion NAVBAR */
 
 /* #region fota duża */
-main > div{
+.video-container {
+    position: relative;
     width: 100%;
-    z-index: -1;
-    position: absolute;
-    height: calc(100lvh - 5rem);
-    background-size: cover;
-    background-image: url("teamek.jpg");
-    background-attachment: fixed;
-    background-position: center;
+    height: calc(100vh - 5rem);
+    overflow: hidden;
 }
 
+#background-video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+main > video {
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    position: relative;
+}
 /* #endregion fota duża */
 
 
 /* #region blok srodkowy */
-.block{
-    
-    background: rgb(41,41,17);
-    background: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
+.block {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    height: calc(100lvh - 5rem);
+    height: 100%;
+    background: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
+    z-index: 1;
 }
 
 .block > h1{
