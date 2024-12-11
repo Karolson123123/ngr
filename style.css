@@ -15,6 +15,7 @@
     --cardblack: #1a1919;
     --black: #0e0d0d;
     scroll-behavior: smooth;
+    color: white;
 }
     
 body {
@@ -53,6 +54,7 @@ body {
 /* #endregion GŁÓWNE */
 
 /* #region NAVBAR */
+
 nav {
     display: flex;
     position: sticky;
@@ -67,7 +69,6 @@ nav {
     backdrop-filter: blur(8px);
     opacity: 0.8;
 }
-
 
 nav > div:nth-child(2) {
     position: absolute;
@@ -109,6 +110,7 @@ nav > div {
     transition: all 0.3s ease;
     font-size: 1.1rem;
     letter-spacing: 1px;
+    text-wrap: nowrap;
 }
 
 .navbutton:hover {
@@ -148,50 +150,64 @@ nav > div {
 #ig:hover {
     transform: scale(1.1);
 }
+#menu{
+    display: none;
+    height: 100%;
+    width: 5rem;
+    z-index: 2;
+}
+
+#menu > div{
+    position: sticky;
+    top: 5rem;
+    right: 0;
+    display: flex;
+    flex-direction: column;
+
+}
+
+@media only screen and (max-width: 700px) {
+    nav > div:nth-child(2) {
+        display: none;
+    }
+    #ig {
+        display: none;
+    }
+    #menu{
+        
+        display: block;
+    }
+
+}
 
 /* #endregion NAVBAR */
 
 /* #region fota duża */
-.video-container {
-    position: relative;
+main > div{
     width: 100%;
-    height: calc(100vh - 5rem);
-    overflow: hidden;
-}
-
-#background-video {
+    z-index: -1;
     position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-    transform: translate(-50%, -50%);
-    z-index: -1;
+    height: calc(100lvh - 5rem);
+    background-size: cover;
+    background-image: url("teamek.jpg");
+    background-attachment: fixed;
+    background-position: center;
 }
 
-main > video {
-    width: 100%;
-    height: auto;
-    z-index: -1;
-    position: relative;
-}
 /* #endregion fota duża */
 
 
 /* #region blok srodkowy */
-.block {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+.block{
+    
+    background: rgb(41,41,17);
     background: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
+    width: 100%;
+    height: calc(100lvh - 5rem);
     display: flex;
     justify-content: flex-end;
     align-items: center;
     flex-direction: column;
-    z-index: 1;
 }
 
 .block > h1{
