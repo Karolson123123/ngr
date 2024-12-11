@@ -60,14 +60,14 @@ nav {
     position: sticky;
     top: 0;
     height: 5rem;
-    background-color: rgba(14, 13, 13, 0.95);
+    background-color: rgba(14, 13, 13, 0.9);
     z-index: 100;
     font-weight: 500;
     justify-content: space-between;
     align-items: center;
     box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
     backdrop-filter: blur(8px);
-    opacity: 0.8;
+    
 }
 
 nav > div:nth-child(2) {

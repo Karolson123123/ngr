@@ -1,2 +1,57 @@
 @import url("style.css");
 
+.story > h1{
+    text-align: center;
+    font-size: 3rem;
+
+}
+
+.story{
+    padding: 2rem;
+}
+
+.management > div{
+    display: flex;
+    justify-content: space-around;
+}
+
+.management > h1{
+    text-align: center;
+    font-size: 2rem;
+}
+
+
+
+.management .card{
+    height: 44rem;
+    width: 30rem;
+
+}
+
+.card-info .subtitle{
+    font-size: 1.5rem;
+    transition: none;
+    
+}
+
+.card-info .title{
+    font-size: 2rem;
+    transition: none;
+}
+
+.card *{
+    transition: none;
+}
+
+.card:hover{
+    color: var(--zolty);
+    
+}
+
+.card-info:hover .title{
+    transform: none;
+}
+
+.card-info:hover .subtitle{
+    transform: none;
+}
