@@ -9,7 +9,7 @@ let x = setInterval(function() {
   let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
   let seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-  document.getElementById("countdown").innerHTML = `<div><div>${days} dni</div><div>${hours} h</div><div>${minutes} m</div><div>${seconds} s</div></div>`;
+  document.getElementById("countdown").innerHTML = `<div><div>${days} ${days===1?"dzień":"dni"}</div><div>${hours} h</div><div>${minutes} m</div><div>${seconds} s</div></div>`;
 
   if (distance < 0) {
     clearInterval(x);
