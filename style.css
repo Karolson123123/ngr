@@ -1,13 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+
+/* #region GŁÓWNE */
+
 * {
     box-sizing: border-box;
 }
 
-    
 :root {
     font-family: Roboto;
     --zolty: #be8c02;
+    --zoltyciemniejszy:#8f6900;
     --cardblack: #1a1919;
     --black: #0e0d0d;
     scroll-behavior: smooth;
@@ -17,55 +21,107 @@ body {
     margin: 0;
     background-color: var(--black);
 }
-    
+/* #endregion GŁÓWNE */
+
+/* #region NAVBAR */
 nav {
     display: flex;
     position: sticky;
     top: 0;
     height: 5rem;
-    background-color: var(--black);
+    background-color: rgba(14, 13, 13, 0.95);
     z-index: 100;
-    opacity: 0.9;
     font-weight: 500;
     justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(8px);
 }
 
-#logo{
+
+nav > div:nth-child(2) {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    height: 100%;
+}
+
+#logo {
     width: 5rem;
     height: 5rem;
     background-image: url("maupka.webp");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    
+    transition: transform 0.3s ease;
+    position: relative;
+    z-index: 2;
 }
 
-nav > div{
-    display: flex;
-    align-items: center;
-    
+#logo:hover {
+    transform: scale(1.05);
 }
 
-.navbutton{
+nav > div {
     display: flex;
     align-items: center;
-    padding: 0.5rem 1rem;
+}
+
+.navbutton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 2rem;
     height: 100%;
+    position: relative;
+    transition: all 0.3s ease;
+    font-size: 1.1rem;
+    letter-spacing: 1px;
 }
-.navbutton:hover{
+
+.navbutton:hover {
     background-color: var(--cardblack);
-    border-bottom: 0.25rem solid var(--zolty);
-    
+    color: var(--zolty);
 }
 
-#socials{
+.navbutton::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    width: 0;
+    height: 3px;
+    background-color: var(--zolty);
+    transition: all 0.3s ease;
+    transform: translateX(-50%);
+}
+
+.navbutton:hover::after {
+    width: 100%;
+}
+
+#socials {
     padding: 1.25rem;
+    display: flex;
+    gap: 1rem;
+    position: relative;
+    z-index: 2;
 }
 
-#ig{
+#ig {
     filter: invert(100%);
+    transition: transform 0.3s ease;
 }
 
+#ig:hover {
+    transform: scale(1.1);
+}
+
+/* #endregion NAVBAR */
+
+/* #region fota duża */
 main > div{
     width: 100%;
     z-index: -1;
@@ -77,6 +133,10 @@ main > div{
     background-position: center;
 }
 
+/* #endregion fota duża */
+
+
+/* #region blok srodkowy */
 .block{
     
     background: rgb(41,41,17);
@@ -92,26 +152,151 @@ main > div{
 .block > h1{
     color: rgb(214, 211, 211);
     font-size: 7rem;
-    opacity: 0.7;
+  
 }
 
 .block > h2{
-    color: rgb(201, 201, 201);
-    font-size: 3rem;
+    color: rgb(255, 255, 255);
+    font-weight: lighter;
+    font-size: 2rem;
+    position: relative;
+    overflow: hidden;
+    padding: 0.5rem;
+    animation: slideInFromBottom 1.5s ease-out;
+    margin-top: 7rem;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
 }
 
 .block > a{
     display: block;
-    background-color: var(--cardblack);
     height: 5rem;
     width: 5rem;
-    background-image: url(arrow.svg);
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: 3rem;
-    border-radius: 1rem;
-    margin-bottom: 6.3rem;
-    animation: scrolldown both infinite 1.5s alternate;
+    margin-bottom: 3rem;
+    position: relative;
+    transition: transform 0.3s ease;
+}
+
+.block > a::before,
+.block > a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    width: 3px;
+    height: 25px;
+    background-color: var(--zolty);
+    transition: all 0.3s ease;
+}
+
+.block > a::before {
+    transform: translateX(-50%) rotate(45deg);
+    transform-origin: bottom;
+}
+
+.block > a::after {
+    transform: translateX(-50%) rotate(-45deg);
+    transform-origin: bottom;
+}
+
+.block > a:hover {
+    transform: translateY(10px);
+}
+
+.block > a:hover::before,
+.block > a:hover::after {
+    height: 30px;
+    background-color: white;
+}
+
+/* #endregion blok srodkowy */
+
+/* #region odliczanie */
+
+#countdown {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+    color: var(--zolty);
+    margin-bottom: 1rem;
+    animation: fadeIn 1s ease-out forwards 1s;
+}
+
+#countdown-text {
+    text-align: center;
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 2rem;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    position: relative;
+    padding-bottom: 1rem;
+    animation: fadeInDown 1s ease-out;
+}
+
+#countdown-text::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 0;
+    height: 3px;
+    background-color: var(--zolty);
+    animation: lineGrow 1s ease-out forwards 0.5s;
+}
+
+@keyframes fadeInDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes lineGrow {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+#countdown > div {
+    display: flex;
+    gap: 1rem;
+}
+
+#countdown > div > div {
+    background-color: var(--cardblack);
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    text-align: center;
 }
 
 @keyframes scrolldown{
@@ -123,6 +308,12 @@ main > div{
     }
 
 }
+
+/* #endregion odliczanie */
+
+
+/* #region sekcja zespołu */
+
 
 .card-list{
     display: flex;
@@ -145,9 +336,12 @@ main > div{
 .section-title{
     text-align: center;
     color: white;
+    z-index: 2;
+    font-size: 2rem;
 }
 .team-roster{
     background-color: var(--black);
+    scroll-margin-top: 7rem;
 }
 .card-info{
     display: flex;
@@ -168,10 +362,11 @@ main > div{
     flex: 1;
 }
 .card:hover{
-    transform: scale(1.1);
+    transform: scale(1.05);
     transition: 0.4s;
-    box-shadow: 0 0 4rem 0.80rem var(--zolty);
+    box-shadow: 0 0 5rem -0.5rem var(--zoltyciemniejszy);
     z-index: 0;
+
 }
 
 
@@ -196,3 +391,66 @@ a{
     
     
 }
+
+/* #endregion sekcja zespołu */
+
+/* #region stopka */
+
+footer {
+    background-color: var(--cardblack);
+    padding: 4rem 2rem;
+    margin-top: 4rem;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    box-shadow: 0 -2px 15px rgba(0, 0, 0, 0.3);
+}
+
+.footer-section {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.footer-section h3 {
+    color: var(--zolty);
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.footer-section h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--zolty);
+}
+
+.footer-logo {
+    width: 150px;
+    height: 150px;
+    margin-bottom: 1rem;
+}
+
+.footer-contact {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.footer-contact a {
+    color: white;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-contact a:hover {
+    color: var(--zolty);
+}
+
+/* #endregion stopka */
