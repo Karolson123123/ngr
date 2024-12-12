@@ -39,14 +39,13 @@ const insert_component = (qcomponent, qtoreplace, tempDiv) => {
 
 };
 
-document.addEventListener("DOMContentLoaded", function () {
+document.addEventListener("DOMContentLoaded", () => {
     fetch("components.html")
         .then(response => response.text())
         .then(data => {
             const tempDiv = document.createElement("div");
             tempDiv.innerHTML = data;
 
-            insert_component("aside", "aside", tempDiv);
             insert_component("nav", "nav", tempDiv);
             insert_component("footer", "footer", tempDiv);
             insert_component("book", "book", tempDiv);
