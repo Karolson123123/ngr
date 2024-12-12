@@ -1,25 +1,62 @@
 @import url("style.css");
+#gallery{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 2rem;
+    
+    
+}
 
 main{
     display: flex;
-    align-items: start;
+    width: 70%;
+    border-radius: 2rem;
+    background: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
+    overflow-x: scroll;
 }
 
-.story > h1{
+::-webkit-scrollbar{
+    display: none;
+}
+
+main > img{
+    z-index: -1;
+    border-radius: 2rem;
+    height: 45rem;
+    object-fit: cover;
+    min-width: 100%;
+    
+}
+
+.story > div >h1{
     text-align: center;
     font-size: 4rem;
 
 }
 
-.story > div{
+.story > div > div{
     font-size: 1.5rem ;
-}
 
-.story{
-    padding: 2rem;
-    width: 100%;
     
 }
+
+#content{
+    display: flex;
+    align-items: start;
+    flex-direction: column;
+    width: 100%;
+}
+.story{
+    border-radius: 2rem;
+    padding: 2rem;
+    width: 30%;
+    z-index: 99;
+    position: absolute;
+    left: 17%;
+}
+
+
 
 section > div {
     display: flex;
@@ -29,14 +66,14 @@ section > div {
 
 #ultras-button{
     background-color: var(--zolty);
-    height: 8rem;
-    width: 30rem;
+    height: 6rem;
+    width: 26rem;
     padding: 1rem;
     font-weight: bold;
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 2.3rem;   
+    font-size: 2rem;   
     margin-top: 5rem; 
     border-radius: 1rem;
     box-shadow: 0 0 3rem 0.2rem var(--zolty);
@@ -50,7 +87,10 @@ section > div {
     color: var(--zoltyciemniejszy);
 }
 
-
+#line{
+    width: 90%;
+    margin: 3rem;
+}
 
 #games{
     display: flex;
@@ -99,8 +139,8 @@ section > div {
 
 .song{
     background-color:  var(--cardblack);
-    height: 39rem;
-    width: 25rem;
+    height: 20rem;
+    width: 15rem;
     border-radius: 1rem;
     display: flex;
     justify-content: start;
