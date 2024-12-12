@@ -7,10 +7,15 @@
 </head>
 <body>
     <nav>
-        <a href="main.html" id="logo"></a>
+        <a href="main.html" id="logo" class=" navbutton"></a>
             <div>
                 <a class="navbutton" href="aboutus.html">O Nas</a>
-                <a class="navbutton" href="ultras.html">Ultrasi</a>
+                <div class="dropdown">
+                    <a class="navbutton" href="ultras.html">Ultrasi</a>
+                    <div class="dropdown-content">
+                        <a href="spiewnik.html">Śpiewnik</a>
+                    </div>
+                </div>
                 <a class="navbutton" href="games.html">Mecze</a>
                 <a class="navbutton" href="plutomierz.html">Plutomierz</a>
             </div>
@@ -18,17 +23,18 @@
                 
                 <a href="https://www.instagram.com/ngineers60?igsh=ZnAyY3UxYnE3am9t&utm_source=qr" target="_blank"> <img src="/img_vid/ig.svg" alt="ig" id="ig"></a>
             </div>
-            <div id="menu" onclick="displaymenu()">
-                <p>kreski</p>
-                <div>
-                    <a class="navbutton" href="aboutus.html">O Nas</a>
-                    <a class="navbutton" href="ultras.html">Ultrasi</a>
-                    <a class="navbutton" href="games.html">Mecze</a>
-                    <a class="navbutton" href="plutomierz.html">Plutomierz</a>
+            <div id="menu" >
+                
+                <div class="phone">
+                    <div id="photo" onclick="displaymenu()"><img src="img_vid/lines.svg" alt=""></div>
+                    <div class="phonemenu">
+                        <a class="navbutton phone-content" href="aboutus.html">O Nas</a>
+                        <a class="navbutton phone-content" href="ultras.html">Ultrasi</a>
+                        <a class="navbutton phone-content" href="games.html">Mecze</a>
+                        <a class="navbutton phone-content" href="plutomierz.html">Plutomierz</a>
+                    </div>
                 </div>
             </div>
-
-
     </nav>
 
     <footer>
@@ -50,6 +56,45 @@
                 <p>Discord: Ngineers#1234</p>
             </div>
         </div>
+
+        <div class="footer-section">
+            <h3>Sponsorzy</h3>
+            <div id="sponsors-layout"> 
+                <div class="footer-sponsors">
+                    <a href="https://sunapartamenty.pl/" target="_blank"><img src="img_vid/sunaparty.webp" class="sponsors"></a>
+                </div>
+                <div class="footer-sponsors">
+                    <a href="https://g.co/kgs/nRfLwbU" target="_blank"><img src="img_vid/slonce.webp" class="sponsors" alt=""></a>
+                </div>
+                <div class="footer-sponsors">
+                    <a href="http://www.zomarkbud.pl/" target="_blank"><img src="img_vid/markbud.png" class="sponsors" alt=""></a>
+                </div>
+            </div>
+        </div>
     </footer>
+
+    <aside>
+        <h1 data-param="title"></h1>
+        <p data-param="description"></p>
+        <div data-style="font-size">tesciu</div>
+    </aside>
+
+    
+
+    <book>
+        <a class="book" href="spiewnik.html#song3">
+            <div class="title">
+              <p data-param="title"></p>
+            </div>
+            <div class="book-cover" data-style="background-image">
+              <div class="effect"></div>
+              <div class="light"></div>
+            </div>
+            <div class="book-inside">
+            </div>
+            
+          </a>
+    </book>
+    
 </body>
 </html>
