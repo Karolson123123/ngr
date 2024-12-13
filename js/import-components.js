@@ -10,31 +10,43 @@ Element.prototype.getAllParams = function() {
 
 const insert_component = (qcomponent, qtoreplace, tempDiv) => {
     const component = tempDiv.querySelector(qcomponent);
-    const toreplace = document.querySelector(qtoreplace);
-    
-    if (toreplace !== null) {
-        const params = toreplace.getAllParams();
-    
-        Object.keys(params).forEach(key => {
-            const paramValue = params[key];
-    
-            if (key.startsWith('style-')) {
-                const styleName = key.replace('style-', '');
-                component.style[styleName] = paramValue;
-            } else {
-                const elements = component.querySelectorAll(`[data-param="${key}"]`);
-                elements.forEach(element => {
-                    element.innerHTML = paramValue;
-                });
+    const toreplace = document.querySelectorAll(qtoreplace);
 
-                const elementsStyle = component.querySelectorAll(`[data-style="${key}"]`);
-                elementsStyle.forEach(element => {
-                    element.style[key] = paramValue;
-                });
-            }
-        });
+    if (toreplace !== null) {
+        const alltoreplace = Array.from(toreplace);
+        console.log(alltoreplace);
+
+        alltoreplace.forEach((torep) => {
+            const clonedComponent = component.cloneNode(true);
+            const params = torep.getAllParams();
+            
+            console.log(params);
+
+            Object.keys(params).forEach(key => {
+                const paramValue = params[key];
+        
+                if (key.startsWith('style-')) {
+                    const styleName = key.replace('style-', '');
+                    clonedComponent.style[styleName] = paramValue;
+                } else {
+                    const elements = clonedComponent.querySelectorAll(`[data-param="${key}"]`);
+                    elements.forEach(element => {
+                        if (key === "href") {
+                            element.href = paramValue;
+                        } else {
+                            element.innerHTML = paramValue;
+                        }
+                    });
     
-        toreplace.parentNode.replaceChild(component, toreplace);
+                    const elementsStyle = clonedComponent.querySelectorAll(`[data-style="${key}"]`);
+                    elementsStyle.forEach(element => {
+                        element.style[key] = paramValue;
+                    });
+                }
+            });
+        
+            torep.parentNode.replaceChild(clonedComponent, torep);
+        });
     }
 
 };

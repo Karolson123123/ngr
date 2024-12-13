@@ -674,6 +674,7 @@ footer {
 
 #sponsors-layout{
     display: flex;
+    flex-wrap: wrap;
     gap: 3rem;
     
 }
