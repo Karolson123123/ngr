@@ -360,6 +360,16 @@ main > video {
     margin-bottom: 3rem;
     position: relative;
     transition: transform 0.3s ease;
+    animation: updown 2s ease -1.1s infinite alternate-reverse, slideInFromBottom 1.5s ease-out;
+}
+
+@keyframes updown {
+    from {
+        transform: translateY(-4%);
+    }
+    to {
+        transform: translateY(4%);
+    }
 }
 
 .block > a::before,
