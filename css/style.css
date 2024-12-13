@@ -578,7 +578,9 @@ main > video {
     
 }
 .card-photo{
-    flex: 1;
+    background-size: cover;
+    border-radius: 0.8rem;
+    height: 65%;
 }
 .card:hover{
     transform: scale(1.05);

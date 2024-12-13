@@ -18,32 +18,31 @@ let x = setInterval(function() {
 }, 1000);
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//     const cards = document.querySelectorAll('.card');
 
-document.addEventListener("DOMContentLoaded", function() {
-    const cards = document.querySelectorAll('.card');
+//     cards.forEach(card => {
+//         card.addEventListener('mouseenter', function() {
+//             const cardInfo = this.querySelector('.card-info');
+//             this.dataset.originalText = cardInfo.querySelector('.title').textContent;
+//             cardInfo.querySelector('.title').textContent = "Kliknij, aby zobaczyć profil";
 
-    cards.forEach(card => {
-        card.addEventListener('mouseenter', function() {
-            const cardInfo = this.querySelector('.card-info');
-            this.dataset.originalText = cardInfo.querySelector('.title').textContent;
-            cardInfo.querySelector('.title').textContent = "Kliknij, aby zobaczyć profil";
+//             const arrowElement = document.createElement('div');
+//             arrowElement.classList.add('arrow-down');
+//             cardInfo.querySelector('.title').appendChild(arrowElement);
+//         });
 
-            const arrowElement = document.createElement('div');
-            arrowElement.classList.add('arrow-down');
-            cardInfo.querySelector('.title').appendChild(arrowElement);
-        });
+//         card.addEventListener('mouseleave', function() {
+//             const cardInfo = this.querySelector('.card-info');
+//             cardInfo.querySelector('.title').textContent = this.dataset.originalText;
 
-        card.addEventListener('mouseleave', function() {
-            const cardInfo = this.querySelector('.card-info');
-            cardInfo.querySelector('.title').textContent = this.dataset.originalText;
-
-            const arrowElement = cardInfo.querySelector('.arrow-down');
-            if (arrowElement) {
-                arrowElement.remove();
-            }
-        });
-    });
-});
+//             const arrowElement = cardInfo.querySelector('.arrow-down');
+//             if (arrowElement) {
+//                 arrowElement.remove();
+//             }
+//         });
+//     });
+// });
 
 
 document.addEventListener("DOMContentLoaded", function() {
