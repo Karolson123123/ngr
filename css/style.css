@@ -165,10 +165,25 @@ nav > div {
     from {
         transform: translateY(-50%);
         opacity: 0;
+        user-select: none;
     }
     to {
         transform: translateY(0%);
         opacity: 1;
+        user-select: text;
+    }
+}
+
+@keyframes slideInFromTop2 {
+    from {
+        transform: translateY(-25%);
+        opacity: 0;
+        user-select: none;
+    }
+    to {
+        transform: translateY(0%);
+        opacity: 1;
+        user-select: text;
     }
 }
 
@@ -400,6 +415,17 @@ article {
     to {
         transform: translateY(0);
         opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom2 {
+    from {
+        transform: translateY(0);
+        opacity: 1;
+    }
+    to {
+        transform: translateY(-25%);
+        opacity: 0;
     }
 }
 

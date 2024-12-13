@@ -68,6 +68,7 @@ document.addEventListener("DOMContentLoaded", () => {
             insert_component("book", "book", tempDiv);
             insert_component("card", "card", tempDiv);
             insert_component("mgmtcard", "mgmtcard", tempDiv);
+            insert_component("storyyear", "storyyear", tempDiv);
             
             const navbuttons = document.getElementsByClassName("navbutton");
             let aktualnastrona = window.location.href;
