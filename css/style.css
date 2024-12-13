@@ -118,7 +118,8 @@ nav > div {
 }
 
 .navbutton:hover {
-    background-color: var(--cardblack);
+    background-color: #312f2f60;
+    /* background-color: var(--cardblack); */
     color: var(--zolty);
 }
 

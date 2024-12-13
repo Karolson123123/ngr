@@ -33,7 +33,7 @@ const insert_component = (qcomponent, qtoreplace, tempDiv) => {
                         } else if (key === "src") {
                             element.src = paramValue;
                         } else {
-                            element.innerHTML = paramValue;
+                            element.innerHTML += paramValue;
                         }
                     });
     
@@ -63,6 +63,7 @@ document.addEventListener("DOMContentLoaded", () => {
             insert_component("footer", "footer", tempDiv);
             insert_component("book", "book", tempDiv);
             insert_component("card", "card", tempDiv);
+            insert_component("mgmtcard", "mgmtcard", tempDiv);
             
             const navbuttons = document.getElementsByClassName("navbutton");
             let aktualnastrona = window.location.href;
@@ -82,6 +83,15 @@ document.addEventListener("DOMContentLoaded", () => {
         const observer = new MutationObserver((mutationsList, observer) => {
             // Check if any <card> elements have been added to the DOM
             const cards = document.querySelectorAll('card .card');
+            const mgmtcards = document.querySelectorAll("mgmtcard .card");
+
+            if (mgmtcards.length > 0) {
+                mgmtcards.forEach(card => {
+                    card.addEventListener('click', () => {
+                        card.classList.toggle('flipped');
+                    });
+                });
+            }
             
             if (cards.length > 0) {    
                 cards.forEach(card => {
@@ -109,6 +119,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 // Once the elements are found, stop observing
                 observer.disconnect();
             }
+
         });
     
         observer.observe(document.body, { childList: true, subtree: true });
