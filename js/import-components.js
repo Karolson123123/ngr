@@ -85,7 +85,6 @@ document.addEventListener("DOMContentLoaded", () => {
         .catch(error => console.error("Error:", error));
         
         const observer = new MutationObserver((mutationsList, observer) => {
-            // Check if any <card> elements have been added to the DOM
             const cards = document.querySelectorAll('card .card');
             const mgmtcards = document.querySelectorAll("mgmtcard .card");
 
@@ -95,6 +94,8 @@ document.addEventListener("DOMContentLoaded", () => {
                         card.classList.toggle('flipped');
                     });
                 });
+
+                observer.disconnect();
             }
             
             if (cards.length > 0) {    
@@ -120,7 +121,6 @@ document.addEventListener("DOMContentLoaded", () => {
                     });
                 });
     
-                // Once the elements are found, stop observing
                 observer.disconnect();
             }
 

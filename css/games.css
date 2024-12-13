@@ -79,13 +79,34 @@ h2 {
     padding: 2rem;
 }
 
-.mecz {
-    display: grid;
-    grid-template-columns: 1fr 3fr 1fr;
+.mecz-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     width: 100%;
-    border-radius: 2rem;
-    height: 15rem;
     background-color: var(--cardblack);
+    border-radius: 2rem;
+}
+
+.mecz {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: 18rem;
+}
+
+.mecz-wiecej {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    padding: 1rem;
+}
+
+.mecz-wiecej-item {
+    border-radius: 1rem;
+    width: 100%;
+    height: 15rem;
+    background-color: black;
 }
 
 .mecz:hover {
