@@ -217,9 +217,6 @@ nav > div {
     display: block;
 }
 
-
-
-
 #socials {
     padding: 1.25rem;
     display: flex;
@@ -266,8 +263,6 @@ nav > div {
 
 .phone {
     height: 100%;
-    
-
 }
 
 .phonemenu{
@@ -302,11 +297,7 @@ nav > div {
     width: 100%;
     box-shadow: 0 8px 16px rgba(0,0,0,0.2);
     z-index: 1;
-
 }
-
-
-
 
 .phone-content a {
     color: white;
@@ -322,8 +313,6 @@ nav > div {
     color: var(--zolty);
 }
 
-
-
 @media only screen and (max-width: 700px) {
     nav > div:nth-child(2) {
         display: none;
@@ -332,11 +321,8 @@ nav > div {
         display: none;
     }
     #menu{
-        
         display: flex;
-        
     }
-
 }
 
 /* #endregion NAVBAR */
@@ -393,7 +379,6 @@ article {
 .block > h1{
     color: rgb(214, 211, 211);
     font-size: 7rem;
-  
 }
 
 .block > h2{
@@ -547,8 +532,6 @@ article {
     }
 }
 
-
-
 #countdown > div {
     display: flex;
     gap: 1rem;
@@ -568,7 +551,6 @@ article {
     100%{
         transform: translateY(0.5rem);
     }
-
 }
 
 /* #endregion odliczanie */
@@ -581,6 +563,7 @@ article {
     justify-content: center;
     flex-wrap: wrap;
 }
+
 .card {
     margin: 20px 15px;
     display: flex;
@@ -601,10 +584,12 @@ article {
     z-index: 2;
     font-size: 2rem;
 }
+
 .team-roster{
     background-color: var(--black);
     scroll-margin-top: 7rem;
 }
+
 .card-info{
     display: flex;
     width: 100%;
@@ -612,13 +597,11 @@ article {
     align-items: center;
     flex: 1;
     transition: color 0.3s ease;
-    
 }
 
 .card-info .title {
     position: relative;
     transition: all 0.3s ease;
-    
 }
 
 .card-info:hover .title {
@@ -646,7 +629,6 @@ article {
     color: var(--zolty);
 }
 
-
 .arrow-down {
     width: 0;
     height: 0;
@@ -663,21 +645,20 @@ article {
     width: 100%;
     border-radius: 0.8rem;
     height: 100%;
-    
 }
+
 .card-photo{
     background-size: cover;
     border-radius: 0.8rem;
     height: 65%;
 }
+
 .card:hover{
     transform: scale(1.05);
     transition: 0.4s;
     box-shadow: 0 0 5rem -0.5rem var(--zoltyciemniejszy);
     z-index: 0;
-
 }
-
 
 .role{
     background-color: var(--zolty);
@@ -688,17 +669,16 @@ article {
     border-radius: 0.5rem;
     opacity: 0.9;
 }
+
 a{
     text-decoration: none;
     color: white;
-    
 }
+
 .role > img{
     width: 2.5rem;
     height: 2.5rem;
     filter: brightness(100);
-    
-    
 }
 
 /* #endregion sekcja zespołu */
@@ -766,19 +746,18 @@ footer {
     display: flex;
     flex-wrap: wrap;
     gap: 3rem;
-    
 }
 
 .sponsors{
     height: 5rem;
     
 }
+
 @media only screen and (max-width: 1080px) {
     #sponsors-layout{
         flex-direction: column;
     }
 }
-
 
 @media only screen and (max-width: 780px) {
     footer{
@@ -789,7 +768,5 @@ footer {
         flex-direction: column;
     }
 }
-
-
 
 /* #endregion stopka */

@@ -46,8 +46,8 @@ main > img{
 }
 
 #kropeczki > .kropeczka-active {
-  width: 2rem;
-  transition: 0.3s;
+  width: 2.5rem;
+  transition: 0.4s;
   background-color: var(--zolty);
 }
 

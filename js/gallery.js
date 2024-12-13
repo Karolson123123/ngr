@@ -18,11 +18,9 @@ for (let i = 0; i < ileimg; i++) {
 }
 
 kropeczkilist.forEach((kropeczka, index) => {
-    kropeczka.addEventListener("click", (e) => {
-        e.preventDefault();
-        
+    kropeczka.addEventListener("click", () => {
         main.scrollTo({
-            top: main.children[index].offsetLeft,
+            left: main.children[index].offsetLeft,
             behavior: "smooth"
         });
 
@@ -53,4 +51,4 @@ function autoScroll() {
     });
 }
 
-setInterval(autoScroll, 5000);
+setInterval(autoScroll, 6000);
