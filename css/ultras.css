@@ -27,14 +27,13 @@ main > img{
   object-fit: cover;
   min-width: 100%;
   scroll-snap-align: center; /* to psuje drag scrolla */
-  scroll-margin-top: 10rem;
+  user-select: none;
 }
 
 #kropeczki {
   display: flex;
   gap: 0.5rem;
 }
-
 
 #kropeczki > div {
   display: block;
