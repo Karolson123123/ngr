@@ -28,10 +28,14 @@ const insert_component = (qcomponent, qtoreplace, tempDiv) => {
                 } else {
                     const elements = clonedComponent.querySelectorAll(`[data-param="${key}"]`);
                     elements.forEach(element => {
-                        if (key === "href") {
+                        if (key.startsWith("href")) {
                             element.href = paramValue;
-                        } else if (key === "src") {
-                            element.src = paramValue;
+                        } else if (key.startsWith("src")) {
+                            if (key.startsWith("srcset")) {
+                                element.srcset = paramValue;
+                            } else {
+                                element.src = paramValue;
+                            }
                         } else {
                             element.innerHTML += paramValue;
                         }
