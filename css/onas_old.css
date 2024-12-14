@@ -10,45 +10,26 @@
     padding: 2rem;
 }
 
-#years {
+.story > div {
     display: flex;
-    justify-content: space-around;
-    padding: 2rem;
-    align-items: center;
+    gap: 3rem;
+}
+
+.story > div > * {
+    width: 50%;
+}
+
+.story > div > div > h1 {
+    font-weight: 400;
+}
+
+.story > div > div > img {
     width: 100%;
+    aspect-ratio: 495/359;
+    border-radius: 2rem;
+    border: var(--zolty) solid 0.25rem;
+    box-shadow: 0 0 3rem -0.5rem var(--zoltyciemniejszy);
 }
-
-.year > h1 {
-    font-size: 3rem;
-}
-
-.year-active > h1 {
-    border-bottom: var(--zolty) solid 0.25rem;
-    border-top: transparent solid 0.25rem;
-}
-
-.lacznik {
-    height: 0.5rem;
-    border-radius: 0.5rem;
-    width: 14rem;
-    background-color: var(--cardblack);
-}
-
-#year-content {
-    display: flex;
-    width: 100%;
-    height: 20rem;
-    padding-left: 4rem;
-    padding-right: 4rem;
-}
-
-#year-content-text, #year-content-img {
-    flex: 1;
-}
-
-/* #endregion napis górny */
-
-/* #region zarzad */
 
 .management > div{
     display: flex;
@@ -58,13 +39,59 @@
 
 .management > h1{
     text-align: center;
+    font-size: 2.5rem;
+}
+
+.year {
+    text-align: center;
+    font-weight: bold;
+}
+
+h3{
+    margin: 0;
+}
+
+.year > section {
+    display: flex;  
+    justify-content: space-between;
+    padding: 0.5rem;
+    padding-right: 5rem;
+    padding-left: 5rem;
+    background-color: var(--cardblack);
+    border-radius: 2rem;
+    z-index: 2;
     font-size: 3rem;
 }
 
-/* #endregion zarzad */
+.year > section > img{
+    width: 2rem;
+}
+
+.year:hover {
+    cursor: pointer;
+}
+
+.year > div {
+    display: none;
+    flex-direction: column;
+    font-size: 1rem;
+    cursor: default;
+    z-index: -1;
+    animation: slideInFromTop2 0.3s ease;
+}
+
+.year > div > p {
+    font-weight: normal;
+    cursor: text;
+}
+
+.year > div > h2 {
+    cursor: text;
+}
+
+/* #endregion napis górny */
 
 /* #region karta generalna */
-
 .management .card{
     height: 39rem;
     width: 25rem;

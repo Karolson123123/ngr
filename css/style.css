@@ -122,6 +122,7 @@ nav > div {
 
 .navbutton-active{
     border-bottom: 0.2rem solid var(--zolty);
+    border-top: 0.2rem solid transparent;
 }
 
 .navbutton:hover {
@@ -140,21 +141,16 @@ nav > div {
     background-color: var(--zolty);
     transition: all 0.3s ease;
     transform: translateX(-50%);
-    
 }
-
-
 
 .navbutton-notactive:hover::after {
     width: 100%;
-    
 }
 
 .dropdown {
     position: relative;
     display: inline-block;
     height: 100%;
-    
 }
 
 .dropdown:hover .dropdown-content { /* animacja ze spiewnikiem */
@@ -207,7 +203,6 @@ nav > div {
     text-align: center;
 }
 
-
 .dropdown-content a:hover {
     background-color: var(--black);
     color: var(--zolty);
@@ -240,10 +235,7 @@ nav > div {
     width: 20rem;
     z-index: 2;
     flex-direction: row-reverse;
-    
 }
-
-
 
 #menu > .phone > div > img{
     width: 3rem;
@@ -257,8 +249,6 @@ nav > div {
     left: -10rem;
     display: flex;
     flex-direction: column;
-
-
 }
 
 .phone {
@@ -289,7 +279,6 @@ nav > div {
     padding: 1rem;
 }
 
-
 .phone-content {
     display: flex;
     flex-direction: column;
@@ -306,7 +295,6 @@ nav > div {
     transition: all 0.3s ease;
     text-align: center;
 }
-
 
 .phone-content a:hover {
     background-color: var(--black);
@@ -328,6 +316,7 @@ nav > div {
 /* #endregion NAVBAR */
 
 /* #region fota duża */
+
 .video-container {
     position: relative;
     width: 100%;
@@ -557,7 +546,6 @@ article {
 
 /* #region sekcja zespołu */
 
-
 .card-list{
     display: flex;
     justify-content: center;
@@ -611,7 +599,6 @@ article {
 
 .card-info .subtitle {
     transition: all 0.3s ease;
-    
 }
 
 .card-info:hover .subtitle {
