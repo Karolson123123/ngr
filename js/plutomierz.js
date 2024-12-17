@@ -1,21 +1,18 @@
 let echo_service;
-append = function (text) {
-    document.getElementById("websocket_events").insertAdjacentHTML('beforeend',
-        "<li>" + text + ";</li>"
-    );
-}
 
 const pluta = document.getElementById('pluta');
 const activeUsers = document.getElementById('activeUsers');
 const chat = document.getElementById('chat');
-const gradient = document.getElementById('gradient');
+const usernameInput = document.getElementById('username');
+const textmessageInput = document.getElementById('textmessage');
+const sendMessageButton = document.getElementById('sendMessageButton');
+const motivationalPlutaContainer = document.getElementById('motivationalPluta');
 const box = document.querySelector('.box');
-
+let zamowienie = 0;
 
 window.onload = () => {
     echo_service = new WebSocket('wss://api.plutomierz.ovh/');
     echo_service.onmessage = function (event) {
-        append(event.data)
         let data = JSON.parse(event.data)
         if (data.type === "pluta") {
             pluta.innerHTML = data.value;
@@ -46,7 +43,7 @@ window.onload = () => {
             });
 
             box.innerHTML = /*html*/`
-            <svg className="canvas" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+            <svg className="canvas" viewBox="-100 0 500 200"  xmlns="http://www.w3.org/2000/svg">
                 <path
                     d="M 50 150 A 100 100 0 1 1 250 150"
                     stroke="url(#gradient)"
@@ -88,45 +85,89 @@ window.onload = () => {
                 let miesiac = czas.getMonth();
                 let rok = czas.getFullYear();
                 chat.innerHTML += /*html*/`
-                <div class="message">
+                <div class="message" style="order: ${zamowienie};">
                     <div class="message-top">
                         <h5>${message.username}</h5>
-                        <p>${godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
+                        <p>${godziny < 10 ? "0"+godziny : godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
                     </div>
                     <div class="message-bottom">
                         <p>${message.text}</p>
                     </div>
                 </div>
-                `;                
+                `;
+                zamowienie--;              
             });
         }
         if (data.type === "message") {
+            let czas = new Date(data.message.timestamp);
+            let minuty = czas.getMinutes();
+            let godziny = czas.getHours();
+            let dzien = czas.getDay();
+            let miesiac = czas.getMonth();
+            let rok = czas.getFullYear();
             chat.innerHTML += /*html*/`
-            <div class="message">
+            <div class="message" style="order: ${zamowienie};">
                 <div class="message-top">
                     <h5>${data.message.username}</h5>
-                    <p>${data.message.timestamp}</p>
+                    <p>${godziny < 10 ? "0"+godziny : godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
                 </div>
                 <div class="message-bottom">
                     <p>${data.message.text}</p>
                 </div>
             </div>
             `;
+            zamowienie--;
         }
     }
     echo_service.onopen = function () {
-        append("Connected to WebSocket!");
+        // append("Connected to WebSocket!");
     }
     echo_service.onclose = function () {
-        append("Connection closed");
+        // append("Connection closed");
     }
     echo_service.onerror = function () {
-        append("Error happens");
+        // append("Error happens");
     }
 }
 
-function sendMessage(event) {
-    console.log(event)
-    let message = document.getElementById("message").value;
-    echo_service.send(message);
+function sendMessage() {
+    let usernameToSend = usernameInput.value;
+    console.log(usernameToSend.length)
+    let textToSend = textmessageInput.value;
+    let dateToSend = new Date();
+    textmessageInput.value = "";
+    dateToSend = dateToSend.toISOString();
+    let plutaMinLength = 2;
+    let plutaMaxLength = 16;
+    let textMinLength = 0;
+    let textMaxLength = 200;
+
+    if (usernameToSend.length <= plutaMinLength ||
+        usernameToSend.length >= plutaMaxLength ||
+        textToSend.length <= textMinLength ||
+        textToSend.length >= textMaxLength) {
+        if (usernameToSend.length <= plutaMinLength || usernameToSend.length >= plutaMaxLength) {
+            alert(("Nazwa Pluty musi mieć długość od " + plutaMinLength + " do " + plutaMaxLength + " znaków. (Tak jest to przedział otwarty)"));
+        }
+        if (textToSend.length <= textMinLength || textToSend.length >= textMaxLength) {
+            alert(("Wiadomość Plutonowa musi mieć długość od " + textMinLength + " do " + textMaxLength + " znaków. (Tak jest to przedział otwarty)"));
+        }
+    } else {
+        let message = {
+            "username": usernameToSend,
+            "text": textToSend,
+            "timestamp": dateToSend
+        }
+        echo_service.send(JSON.stringify(message));
+    }
 }
+
+fetch('/img_vid/motivationalPluta.json')
+  .then(response => response.json())
+  .then(motivationalPluta => {
+    let randomMotivationalPluta = motivationalPluta[Math.floor(Math.random() * motivationalPluta.length)];
+    motivationalPlutaContainer.innerHTML = randomMotivationalPluta;
+  })
+  .catch(error => {
+    console.error('Error loading JSON:', error);
+  });

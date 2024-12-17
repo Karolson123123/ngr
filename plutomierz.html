@@ -14,40 +14,52 @@
 
     <main>
         <section>
-            Aktywni użytkownicy:
-            <div id="activeUsers"></div>
-            Pluta:
-            <div id="pluta"></div>
-
-
-            <div class="box">
+            <section id="gora">
                 
-                <div>
-                    Tu jest ilość plut
-                </div>
-            </div>
 
+                <div id="motivationalPluta"></div>
+            </section>
+            
+            <section id="srodek">
+                <div class="box"></div>
+            </section>
+            
+            <section id="dol">
+                <div id="pluta"> </div>
+            </section>
 
         </section>
+
+        
+        
         <aside>
+            <div id="chatHead">
+                
+                <h2>PLUTA LIVECHAT</h2>
+                <div>
+                    <section>
+                        Aktywni użytkownicy:
+                        <div id="activeUsers"></div>
+                    </section>
+                    
+                    <section>Autor plutomierza: <a href="https://www.instagram.com/robertkibica?igsh=MW80cXhhMmU1OTd5dQ==">Robert Kibica</a></section>
+                </div>
+
+            </div>
             <div id="chat"></div>
+            <div id="messageContainer">
+                <div>
+                    
+                    <input type="text" placeholder="Nick..." id="username" minlength="2" maxlength="16">
+                    
+                    <input type="text" placeholder="Wiadomość..." id="textmessage" minlength="0" maxlength="200">
+                </div>
+                <button id="sendMessageButton" onclick="sendMessage()">
+                    <img src="img_vid/enter.webp" alt="">
+                </button>
+            </div>
         </aside>
     </main>
-
-    <div class="message">
-        <div class="message-top">
-            <h5>Użytnik</h5>
-            <p>13:06 &bullet; 15.12.2024</p>
-        </div>
-        <div class="message-bottom">
-            <p>Halo plutomierz</p>
-        </div>
-    </div>
-
-    <div>
-        <ul id="websocket_events">
-        </ul>
-    </div>    
 
     <footer></footer>
 </body>
