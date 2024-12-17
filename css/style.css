@@ -98,9 +98,9 @@ nav > div:nth-child(2) {
     z-index: 2;
 }
 
-#logo:hover {
+/* #logo:hover {
     transform: scale(1.05);
-}
+} */
 
 nav > div {
     display: flex;
@@ -127,7 +127,6 @@ nav > div {
 
 .navbutton:hover {
     background-color: #312f2f60;
-    /* background-color: var(--cardblack); */
     color: var(--zolty);
 }
 
@@ -356,7 +355,7 @@ article {
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100svh;
     background: var(--gradient-zolty);
     display: flex;
     justify-content: flex-end;
@@ -575,7 +574,7 @@ article {
 
 .team-roster{
     background-color: var(--black);
-    scroll-margin-top: 7rem;
+    scroll-margin-top: 5rem;
 }
 
 .card-info{
@@ -753,6 +752,18 @@ footer {
 
     #sponsors-layout{
         flex-direction: column;
+    }
+
+    #countdown-text{
+        font-size: 2.125rem;
+    }
+
+    #countdown{
+        font-size: 1.25rem;        
+    }
+
+    #countdown > div{
+        flex-wrap: wrap;     
     }
 }
 

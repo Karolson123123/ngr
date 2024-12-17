@@ -297,27 +297,34 @@ h2{
       margin-top: 0;
     }
     
-
+    main >img{
+      opacity: 0.4;
+      
+    }
     
     .story{
       left: 0;
       width: 100%;
+      line-height: 175%;
     }
   
     .story > div>h1{
-      font-size: 2rem;
+      font-size: 2.7rem;
       width: 100%;
       text-align: center;
+
     }
     .story > div > div{
       font-size: 1rem;
       text-wrap: wrap;
+      text-align: justify;
     }
 
     #ultras-button{
       width: 15rem;
       font-size: 1.15rem;
       height: 4.5rem;
+      margin-top: 7rem;
     }
 
     #content {

@@ -30,8 +30,35 @@
 .lacznik {
     height: 0.5rem;
     border-radius: 0.5rem;
-    width: 14rem;
+    width: 15%;
+    margin-left: 1rem;
+    margin-right: 1rem;
     background-color: var(--cardblack);
+}
+
+.animlacznik {
+    height: 100%;
+    border-radius: 0.5rem;
+    width: 0;
+    /* margin-left: 1rem;
+    margin-right: 1rem; */
+    background-color: var(--zolty);
+}
+
+.year-active + .lacznik{
+    background-color: red;
+}
+
+.animlacznik-active {
+    animation: lacznik-autoscroll 40s linear forwards infinite;
+}
+
+@keyframes lacznik-autoscroll {
+    from {
+        width: 0;
+    } to {
+        width: 100%;
+    }
 }
 
 #year-content {

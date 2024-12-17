@@ -34,5 +34,5 @@ function rozwin(element) {
     } else {
         dorozwiniecia.style.display = "flex";
     }
-
 }
+
