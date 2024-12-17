@@ -746,21 +746,9 @@ footer {
     }
 }
 
-@media only screen and (max-width: 780px) {
+@media only screen and (max-width: 820px) {
     footer{
         flex-direction: column;
-    }
-
-    .video-container{
-        background-image: url('/img_vid/background.webp');
-        background-position: center;
-        background-size: cover;
-        background-repeat: no-repeat;
-        background-attachment: fixed;
-    }
-
-    #background-video{
-        display: none;
     }
 
     #sponsors-layout{

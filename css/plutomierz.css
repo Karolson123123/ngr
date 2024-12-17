@@ -1,0 +1,91 @@
+@import url("style.css");
+
+main {
+    display: flex;
+    height: calc(100dvh - 5rem);
+}
+
+main > section {
+    width: 70%;
+    height: 100%;
+}
+
+main > aside {
+    width: 30%;
+    height: 100%;
+}
+
+main > aside > div {
+    height: 90%;
+    overflow-y: auto;
+}
+
+.message {
+    width: 25rem;
+    height: fit-content;
+    background-color: var(--cardblack);
+    padding: 0.5rem;
+    gap: 0.25rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.message-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.message-top > h5 {
+    all: unset;
+    color: var(--zolty);
+    font-weight: bold;
+    font-size: 1.125rem;
+}
+
+.message-top > p {
+    color: #8b8b8b;
+}
+
+.message * {
+    margin: 0;
+}
+
+.box {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.canvas {
+    width: 100%;
+    height: 100%;
+}
+
+.plutaInfo {
+    position: absolute;
+    margin-top: 200px;
+    text-align: center;
+
+    font-family: Impact, serif;
+    font-size: 3.5rem;
+    font-weight: bold;
+    text-shadow: yellow 0 0 10px;
+}
+
+p {
+    margin: 4px 0;
+}
+
+.critical {
+    font-size: 16px;
+    color: red;
+}
+
+.motivational {
+    font-size: 16px;
+    color: blue;
+}

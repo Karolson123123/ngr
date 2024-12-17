@@ -72,7 +72,7 @@ const slideHistory = () => {
     let nextindex = currentindex+1%allyears.length < allyears.length ? currentindex+1 : 0;
     
     allyears.forEach((year, index) => {
-        if (index == nextindex) {
+        if (index === nextindex) {
             year.click();
         }
     });

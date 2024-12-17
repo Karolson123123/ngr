@@ -3,13 +3,51 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ngineers | Aktualności</title>
+    <title>ngineers | Plutomierz</title>
     <link rel="shortcut icon" href="img_vid/maupka.webp" type="image/x-icon">
     <script src="js/import-components.js" defer></script>
-    <link rel="stylesheet" href="css/onas.css">
+    <script src="js/plutomierz.js" defer></script>
+    <link rel="stylesheet" href="css/plutomierz.css">
 </head>
 <body>
     <nav></nav>
+
+    <main>
+        <section>
+            Aktywni użytkownicy:
+            <div id="activeUsers"></div>
+            Pluta:
+            <div id="pluta"></div>
+
+
+            <div class="box">
+                
+                <div>
+                    Tu jest ilość plut
+                </div>
+            </div>
+
+
+        </section>
+        <aside>
+            <div id="chat"></div>
+        </aside>
+    </main>
+
+    <div class="message">
+        <div class="message-top">
+            <h5>Użytnik</h5>
+            <p>13:06 &bullet; 15.12.2024</p>
+        </div>
+        <div class="message-bottom">
+            <p>Halo plutomierz</p>
+        </div>
+    </div>
+
+    <div>
+        <ul id="websocket_events">
+        </ul>
+    </div>    
 
     <footer></footer>
 </body>
