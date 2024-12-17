@@ -12,6 +12,7 @@
     --zoltyciemniejszy:#8f6900;
     --cardblack: #1a1919;
     --black: #0e0d0d;
+    --tlo: rgb(20, 20, 20);
     --gradient-zolty: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
     scroll-behavior: smooth;
     color: white;
@@ -19,7 +20,7 @@
     
 body {
     margin: 0;
-    background-color: var(--black);
+    background-color: var(--tlo);
 }
 
 .scroll-to-top {
@@ -319,7 +320,7 @@ nav > div {
 .video-container {
     position: relative;
     width: 100%;
-    height: calc(100vh - 5rem);
+    height: calc(100svh - 5rem);
     overflow: hidden;
 }
 
@@ -750,6 +751,18 @@ footer {
         flex-direction: column;
     }
 
+    .video-container{
+        background-image: url('/img_vid/background.webp');
+        background-position: center;
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+    }
+
+    #background-video{
+        display: none;
+    }
+
     #sponsors-layout{
         flex-direction: column;
     }
@@ -764,6 +777,10 @@ footer {
 
     #countdown > div{
         flex-wrap: wrap;     
+    }
+
+    #footer-maupka{
+        align-items: center;
     }
 }
 

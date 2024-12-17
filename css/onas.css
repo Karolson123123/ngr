@@ -1,5 +1,6 @@
 @import url("style.css");
 
+
 /* #region napis górny */
 .story > h1{
     text-align: center;
@@ -16,6 +17,72 @@
     padding: 2rem;
     align-items: center;
     width: 100%;
+}
+
+#years-phone {
+    display: none;
+    gap: 3rem;
+}
+
+#years-phone > div {
+    width: 100%;
+}
+
+.year-phone {
+    text-align: center;
+    font-weight: bold;
+}
+
+.year-phone h3 {
+    margin: 0;
+}
+
+.year-phone > section {
+    display: flex;  
+    justify-content: space-around;
+    padding: 0.5rem;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    background-color: var(--cardblack);
+    border-radius: 2rem;
+    z-index: 2;
+    font-size: 3rem;
+}
+
+.year-phone > section > img{
+    width: 2rem;
+}
+
+.year-phone:hover {
+    cursor: pointer;
+}
+
+.year-phone > div {
+    display: none;
+    flex-direction: column;
+    font-size: 1rem;
+    cursor: default;
+    z-index: -1;
+    animation: slideInFromTop2 0.3s ease;
+}
+
+.year-phone > div > p {
+    font-weight: normal;
+    cursor: text;
+}
+
+.year-phone > div > h2 {
+    cursor: text;
+}
+
+
+
+
+
+
+.year {
+    user-select: none;
+    cursor: pointer;
 }
 
 .year > h1 {
@@ -36,7 +103,7 @@
     background-color: var(--cardblack);
 }
 
-.animlacznik {
+.year-active + .lacznik > div {
     height: 100%;
     border-radius: 0.5rem;
     width: 0;
@@ -45,11 +112,11 @@
     background-color: var(--zolty);
 }
 
-.year-active + .lacznik{
+/* .year-active + .lacznik{
     background-color: red;
-}
+} */
 
-.animlacznik-active {
+.year-active + .lacznik > div {
     animation: lacznik-autoscroll 40s linear forwards infinite;
 }
 
@@ -71,6 +138,12 @@
 
 #year-content-text, #year-content-img {
     flex: 1;
+}
+
+#year-content-img {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
 }
 
 /* #endregion napis górny */
@@ -263,4 +336,67 @@
     text-align: justify;
 }
 
+.label-phone > td{
+    font-weight: 600;
+    color: var(--zolty);
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 1px;
+    border-right: unset !important;
+    border-bottom: var(--zolty) 1px solid !important;
+    width: 2rem;
+    padding: 0;
+    display: none;
+}
+
+
 /* #endregion karta tyl */
+
+
+@media only screen and (max-width: 900px){
+    #years, #year-content{
+        display: none;
+    }
+
+    #years-phone{
+        display: flex;
+    }
+
+    .story{
+        text-align: justify;
+    }
+
+    .year-phone p{
+        text-align: justify;
+        line-height: 170%;
+    }
+
+    .card{
+        margin: 0;
+    
+    }
+}
+
+
+@media only screen and (max-width: 400px){
+    .management .card{
+        width: 100vw;
+    }
+
+    .info-table .label{
+        display: none;
+        
+    }
+
+    .label-phone > td {
+        display: table-cell;
+    }
+
+    .info-table .value {
+        padding-top: 0;
+    }
+
+    .info-table tr:not(:last-child) td {
+        border-bottom: unset;
+    }
+}

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,7 +7,7 @@
 </head>
 <body>
     <nav>
-        <a href="main.html" id="logo" class=" navbutton"></a>
+        <a href="index.html" id="logo" class=" navbutton"></a>
         <div>
             <a class="navbutton" href="aboutus.html">O Nas</a>
             <div class="dropdown">
@@ -32,6 +32,7 @@
                 <div class="phonemenu">
                     <a class="navbutton phone-content" href="aboutus.html">O Nas</a>
                     <a class="navbutton phone-content" href="ultras.html">Ultrasi</a>
+                    <a class="navbutton phone-content" href="spiewnik.html">Śpiewnik</a>
                     <a class="navbutton phone-content" href="games.html">Mecze</a>
                     <a class="navbutton phone-content" href="plutomierz.html">Plutomierz</a>
                     <a class="navbutton phone-content" href="https://www.instagram.com/ngineers60?igsh=ZnAyY3UxYnE3am9t&utm_source=qr">Instagram</a>
@@ -41,22 +42,21 @@
     </nav>
 
     <footer>
-        <div class="footer-section">
+        <div class="footer-section" id="footer-maupka">
             <img src="/img_vid/maupka.webp" alt="NGineers Logo" class="footer-logo">
-            <p></p>
         </div>
         
         <div class="footer-section">
             <h3>O Nas</h3>
-            <p></p>
+            <p>Jesteśmy Ngineers - team e-sportowy i ekipa mega wychillowanych ziomków 😎 </p>
         </div>
         
         <div class="footer-section">
             <h3>Kontakt</h3>
             <div class="footer-contact">
-                <a href="mailto:contact@ngineers.com">contact@ngineers.com</a>
+                <a href="mailto:contact@ngineers.com">kontakt@ngineers.pl</a>
                 <a href="https://www.instagram.com/ngineers60">Instagram: @ngineers60</a>
-                <p>Discord: Ngineers#1234</p>
+                <p>Discord: karolson_</p>
             </div>
         </div>
 
@@ -118,17 +118,29 @@
                     <div class="info-container">
                         <div class="text_over_table" data-param="description"></div>
                         <table class="info-table">
+                            <tr class="label-phone">
+                                <td>Imię</td>
+                            </tr>
                             <tr>
                                 <td class="label">Imię</td>
                                 <td class="value" data-param="imie"></td>
+                            </tr>
+                            <tr class="label-phone">
+                                <td>Nazwisko</td>
                             </tr>
                             <tr>
                                 <td class="label">Nazwisko</td>
                                 <td class="value" data-param="nazwisko"></td>
                             </tr>
+                            <tr class="label-phone">
+                                <td>Rola</td>
+                            </tr>
                             <tr>
                                 <td class="label">Rola</td>
                                 <td class="value" data-param="rola"></td>
+                            </tr>
+                            <tr class="label-phone">
+                                <td>Wiek</td>
                             </tr>
                             <tr>
                                 <td class="label">Wiek</td>
@@ -142,7 +154,7 @@
     </mgmtcard>
 
     <storyyear>
-        <div class="year" >
+        <div class="year-phone" >
             <section onclick="rozwin(this)">
                 <img src="img_vid/plus.svg" alt="plus" style="opacity: 0; user-select: none;">
                 <h3 style="user-select: none;" data-param="rok"></h3>

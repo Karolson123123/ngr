@@ -72,3 +72,16 @@ hr{
     box-shadow: 0 0 5rem 0.4rem var(--zolty);
     color: var(--zoltyciemniejszy);
 }
+
+
+@media only screen and (max-width: 780px){
+    #sponsors-layout{
+        flex-direction: column;
+    }
+
+    #spiewnik-button{
+        height: 4rem;
+        width: 17rem;
+        font-size: 1.5rem;
+    }
+}
