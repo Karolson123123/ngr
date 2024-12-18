@@ -1,7 +1,6 @@
 @import url("style.css");
 
 
-
 #gallery{
   display: flex;
   justify-content: center;
@@ -35,6 +34,15 @@ main > img{
 #kropeczki {
   display: flex;
   gap: 0.5rem;
+}
+
+@media only screen and (max-height: 900px) {
+  #gallery > .story {
+    width: 60%;
+  }
+  .story > #content > h1 + div {
+    width: 80%;
+  }
 }
 
 #kropeczki > div {
@@ -278,6 +286,13 @@ h2{
   /* #endregion ksiazki */
 
   @media only screen and (max-width: 1523px){
+    .container{
+      height: 60rem;
+    }
+
+  }
+
+  @media only screen and (max-height: 800px){
     .container{
       height: 60rem;
     }

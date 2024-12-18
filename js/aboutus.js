@@ -79,6 +79,7 @@ const slideHistory = () => {
 }
 
 const changeHistoryYear = (element) => {
+    let theSameClicked = element.classList.contains("year-active");
     allyears.forEach((year) => {
         if (year.classList.contains("year-active")) {
             year.classList.remove("year-active");
@@ -91,9 +92,11 @@ const changeHistoryYear = (element) => {
     yearcontenttitle.innerHTML = historia[childh1.innerHTML].title;
     yearcontentdescription.innerHTML = historia[childh1.innerHTML].description;
     yearcontentimg.style.backgroundImage = `url(${historia[childh1.innerHTML].img})`;
-
-    clearInterval(slideInterval);
-    slideInterval = setInterval(slideHistory, 40000);
+    // Reset paska - Usuwam tą funkcjonalność, bo powoduje buga
+    if (!theSameClicked) {
+        clearInterval(slideInterval);
+        slideInterval = setInterval(slideHistory, 40000);
+    }
 }
 
 let slideInterval = setInterval(slideHistory, 40000);

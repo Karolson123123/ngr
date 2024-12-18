@@ -14,6 +14,7 @@
     --black: #0e0d0d;
     --tlo: rgb(20, 20, 20);
     --gradient-zolty: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
+    --szary: #8b8b8b;
     scroll-behavior: smooth;
     color: white;
 }
@@ -258,6 +259,21 @@ nav > div {
 .phonemenu{
     display: none;
     animation: slideInFromRight 0.5s ease;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+@media only screen and (max-height: 660px) {
+    .phonemenu {
+        height: calc(100dvh - 5rem);
+        width: 100vw;
+        flex-wrap: wrap;
+        flex-direction: row-reverse;
+    }
+
+    .phonemenu > .navbutton {
+        width: 50%;
+    }
 }
 
 @keyframes slideInFromRight {
@@ -268,6 +284,17 @@ nav > div {
     to {
         transform: translateX(0%);
         opacity: 1;
+    }
+}
+
+@keyframes slideInFromLeft {
+    from {
+        transform: translateX(0%);
+        opacity: 1;
+    }
+    to {
+        transform: translateX(50%);
+        opacity: 0;
     }
 }
 
@@ -310,6 +337,10 @@ nav > div {
     }
     #menu{
         display: flex;
+    }
+
+    .navbutton {
+        height: 5rem;
     }
 }
 
@@ -689,6 +720,10 @@ footer {
     gap: 1rem;
 }
 
+.footer-section p {
+    margin: 0;
+}
+
 .footer-section h3 {
     color: var(--zolty);
     font-size: 1.5rem;
@@ -723,6 +758,22 @@ footer {
     color: white;
     text-decoration: none;
     transition: color 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact p {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.footer-contact a > img, .footer-contact p > img {
+    height: 1rem;
+    width: 1rem;
+    object-fit: contain;
+    object-position: center;
 }
 
 .footer-contact a:hover {
@@ -769,6 +820,16 @@ footer {
 
     #footer-maupka{
         align-items: center;
+    }
+}
+
+@media only screen and (max-height: 860px) {
+    .block > h2 {
+        margin-top: 3rem;
+    }
+
+    .block > a {
+        margin-bottom: 0;
     }
 }
 

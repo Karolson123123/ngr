@@ -132,9 +132,13 @@ document.addEventListener("DOMContentLoaded", () => {
 
 function displaymenu() {
     const phonemenu = document.getElementsByClassName("phonemenu")[0];
-    if (phonemenu.style.display === "block") {
-        phonemenu.style.display = "none";
+    if (phonemenu.style.display === "flex") {
+        phonemenu.style.animation = "slideInFromLeft 0.5s ease";
+        setTimeout(() => {
+            phonemenu.style.display = "none";
+            phonemenu.style.animation = "";
+        }, 500);
     } else {
-        phonemenu.style.display = "block";
+        phonemenu.style.display = "flex";
     }
 }

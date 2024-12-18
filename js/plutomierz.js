@@ -8,7 +8,9 @@ const textmessageInput = document.getElementById('textmessage');
 const sendMessageButton = document.getElementById('sendMessageButton');
 const motivationalPlutaContainer = document.getElementById('motivationalPluta');
 const box = document.querySelector('.box');
+const main = document.querySelector("main");
 let zamowienie = 0;
+
 
 window.onload = () => {
     echo_service = new WebSocket('wss://api.plutomierz.ovh/');
@@ -23,7 +25,7 @@ window.onload = () => {
                 {color: "yellow", minValue: -20, maxValue: 10, dialValue: 55},
                 {color: "green", minValue: 10, maxValue: 35, dialValue: 80},
                 {color: "darkgreen", minValue: 35, maxValue: 75, dialValue: 100},
-            ]
+            ];
 
             const isPlutaLevelCritical = parsedPlutaValue > 45;
 
@@ -38,8 +40,8 @@ window.onload = () => {
             const x2 = centerX + radius * Math.cos((indicatorAngle * Math.PI) / 180);
             const y2 = centerY - radius * Math.sin((indicatorAngle * Math.PI) / 180);
 
-            let halo = plutaColor.map((color, key) => {
-                return `<stop offset='${color.dialValue}%' stop-color='${color.color}' />`
+            let gradientStops = plutaColor.map((color) => {
+                return `<stop offset='${color.dialValue}%' stop-color='${color.color}' />`;
             });
 
             box.innerHTML = /*html*/`
@@ -63,10 +65,10 @@ window.onload = () => {
                 <circle cx="150" cy="150" r="5" fill="black"/>
                 <defs>
                     <linearGradient id="gradient" gradientTransform="rotate(0)">
-                        ${halo[0]}
-                        ${halo[1]}
-                        ${halo[2]}
-                        ${halo[3]}
+                        ${gradientStops[0]}
+                        ${gradientStops[1]}
+                        ${gradientStops[2]}
+                        ${gradientStops[3]}
                     </linearGradient>
                 </defs>
             </svg>
@@ -87,7 +89,7 @@ window.onload = () => {
                 chat.innerHTML += /*html*/`
                 <div class="message" style="order: ${zamowienie};">
                     <div class="message-top">
-                        <h5>${message.username}</h5>
+                        <h5>${message.username}    </h5>
                         <p>${godziny < 10 ? "0"+godziny : godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
                     </div>
                     <div class="message-bottom">
@@ -95,7 +97,8 @@ window.onload = () => {
                     </div>
                 </div>
                 `;
-                zamowienie--;              
+                // ${message.sentFrom === "ngr" ? "<span>NGR</span>" : ""}
+                zamowienie--;
             });
         }
         if (data.type === "message") {
@@ -120,13 +123,19 @@ window.onload = () => {
         }
     }
     echo_service.onopen = function () {
-        // append("Connected to WebSocket!");
+        // console.log("Połączenie z plutomierzem nawiązane");
     }
     echo_service.onclose = function () {
-        // append("Connection closed");
+        console.log("Połączenie z plutomierzem zamknięte");
     }
     echo_service.onerror = function () {
-        // append("Error happens");
+        main.innerHTML = /*html*/`
+        <div class="plutaError">
+            <h5>Marek napraw!</h5>
+            <h1>Połączenie z plutomierzem zawiodło :c</h1>
+            <h3>To jest zamach na Frankiego!!!<h3></h3>
+        </div>
+        `;
     }
 }
 
@@ -135,7 +144,6 @@ function sendMessage() {
     console.log(usernameToSend.length)
     let textToSend = textmessageInput.value;
     let dateToSend = new Date();
-    textmessageInput.value = "";
     dateToSend = dateToSend.toISOString();
     let plutaMinLength = 2;
     let plutaMaxLength = 16;
@@ -153,11 +161,13 @@ function sendMessage() {
             alert(("Wiadomość Plutonowa musi mieć długość od " + textMinLength + " do " + textMaxLength + " znaków. (Tak jest to przedział otwarty)"));
         }
     } else {
+        textmessageInput.value = "";
         let message = {
             "username": usernameToSend,
             "text": textToSend,
-            "timestamp": dateToSend
+            "timestamp": dateToSend,
         }
+        // "sentFrom": "ngr"
         echo_service.send(JSON.stringify(message));
     }
 }
