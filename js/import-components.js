@@ -72,11 +72,17 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const navbuttons = document.getElementsByClassName("navbutton");
             let aktualnastrona = window.location.href;
+            console.log(aktualnastrona)
             
             Array.from(navbuttons).forEach((button) => {
                 if (button.href === aktualnastrona) {
-                    button.classList.add("navbutton-active");
-                    button.classList.remove("navbutton-notactive");
+                    if (button.id !== "logo") {
+                        button.classList.add("navbutton-active");
+                        button.classList.remove("navbutton-notactive");
+                    }
+                } else if (aktualnastrona.endsWith("/")) {
+                    document.getElementById("nav-glowna").classList.add("navbutton-active");
+                    document.getElementById("nav-glowna").classList.remove("navbutton-notactive");
                 } else {
                     button.classList.add("navbutton-notactive");
                     button.classList.remove("navbutton-active");
