@@ -83,8 +83,8 @@ window.onload = () => {
                 let czas = new Date(message.timestamp);
                 let minuty = czas.getMinutes();
                 let godziny = czas.getHours();
-                let dzien = czas.getDay();
-                let miesiac = czas.getMonth();
+                let dzien = czas.getDate();
+                let miesiac = czas.getMonth() + 1;
                 let rok = czas.getFullYear();
                 chat.innerHTML += /*html*/`
                 <div class="message" style="order: ${zamowienie};">
@@ -105,8 +105,8 @@ window.onload = () => {
             let czas = new Date(data.message.timestamp);
             let minuty = czas.getMinutes();
             let godziny = czas.getHours();
-            let dzien = czas.getDay();
-            let miesiac = czas.getMonth();
+            let dzien = czas.getDate();
+            let miesiac = czas.getMonth() + 1;
             let rok = czas.getFullYear();
             chat.innerHTML += /*html*/`
             <div class="message" style="order: ${zamowienie};">
