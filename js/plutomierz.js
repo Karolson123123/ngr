@@ -76,7 +76,7 @@ window.onload = () => {
 
         }
         if (data.type === "activeUsers") {
-            activeUsers.innerHTML = data.count;
+            activeUsers.textContent = data.count;
         }
         if (data.type === "history") {
             data.messages.forEach(message => {
@@ -86,21 +86,39 @@ window.onload = () => {
                 let dzien = czas.getDate();
                 let miesiac = czas.getMonth() + 1;
                 let rok = czas.getFullYear();
-                chat.innerHTML += /*html*/`
-                <div class="message" style="order: ${zamowienie};">
-                    <div class="message-top">
-                        <h5>${message.username}    </h5>
-                        <p>${godziny < 10 ? "0"+godziny : godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
-                    </div>
-                    <div class="message-bottom">
-                        <p>${message.text}</p>
-                    </div>
-                </div>
-                `;
-                // ${message.sentFrom === "ngr" ? "<span>NGR</span>" : ""}
+                
+                const messageElement = document.createElement('div');
+                messageElement.classList.add('message');
+                messageElement.style.order = zamowienie;
+        
+                const messageTop = document.createElement('div');
+                messageTop.classList.add('message-top');
+                
+                const usernameElement = document.createElement('h5');
+                usernameElement.textContent = message.username;
+                
+                const timestampElement = document.createElement('p');
+                timestampElement.textContent = `${godziny < 10 ? "0" + godziny : godziny}:${minuty < 10 ? "0" + minuty : minuty} • ${dzien < 10 ? "0" + dzien : dzien}.${miesiac < 10 ? "0" + miesiac : miesiac}.${rok}`;
+                
+                messageTop.appendChild(usernameElement);
+                messageTop.appendChild(timestampElement);
+        
+                const messageBottom = document.createElement('div');
+                messageBottom.classList.add('message-bottom');
+        
+                const textElement = document.createElement('p');
+                textElement.textContent = message.text;
+        
+                messageBottom.appendChild(textElement);
+        
+                messageElement.appendChild(messageTop);
+                messageElement.appendChild(messageBottom);
+        
+                chat.appendChild(messageElement);
                 zamowienie--;
             });
         }
+        
         if (data.type === "message") {
             let czas = new Date(data.message.timestamp);
             let minuty = czas.getMinutes();
@@ -108,19 +126,38 @@ window.onload = () => {
             let dzien = czas.getDate();
             let miesiac = czas.getMonth() + 1;
             let rok = czas.getFullYear();
-            chat.innerHTML += /*html*/`
-            <div class="message" style="order: ${zamowienie};">
-                <div class="message-top">
-                    <h5>${data.message.username}</h5>
-                    <p>${godziny < 10 ? "0"+godziny : godziny}:${minuty < 10 ? "0"+minuty : minuty} &bullet; ${dzien < 10 ? "0"+dzien : dzien}.${miesiac < 10 ? "0"+miesiac : miesiac}.${rok}</p>
-                </div>
-                <div class="message-bottom">
-                    <p>${data.message.text}</p>
-                </div>
-            </div>
-            `;
+        
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('message');
+            messageElement.style.order = zamowienie;
+        
+            const messageTop = document.createElement('div');
+            messageTop.classList.add('message-top');
+            
+            const usernameElement = document.createElement('h5');
+            usernameElement.textContent = data.message.username;
+            
+            const timestampElement = document.createElement('p');
+            timestampElement.textContent = `${godziny < 10 ? "0" + godziny : godziny}:${minuty < 10 ? "0" + minuty : minuty} • ${dzien < 10 ? "0" + dzien : dzien}.${miesiac < 10 ? "0" + miesiac : miesiac}.${rok}`;
+            
+            messageTop.appendChild(usernameElement);
+            messageTop.appendChild(timestampElement);
+        
+            const messageBottom = document.createElement('div');
+            messageBottom.classList.add('message-bottom');
+        
+            const textElement = document.createElement('p');
+            textElement.textContent = data.message.text;
+        
+            messageBottom.appendChild(textElement);
+        
+            messageElement.appendChild(messageTop);
+            messageElement.appendChild(messageBottom);
+        
+            chat.appendChild(messageElement);
             zamowienie--;
         }
+        
     }
     echo_service.onopen = function () {
         // console.log("Połączenie z plutomierzem nawiązane");
