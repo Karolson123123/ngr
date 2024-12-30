@@ -72,7 +72,6 @@ document.addEventListener("DOMContentLoaded", () => {
             
             const navbuttons = document.getElementsByClassName("navbutton");
             let aktualnastrona = window.location.href;
-            console.log(aktualnastrona)
             
             Array.from(navbuttons).forEach((button) => {
                 if (button.href === aktualnastrona) {

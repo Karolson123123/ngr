@@ -17,7 +17,7 @@ window.onload = () => {
     echo_service.onmessage = function (event) {
         let data = JSON.parse(event.data)
         if (data.type === "pluta") {
-            pluta.innerHTML = data.value;
+            pluta.textContent = data.value;
             let parsedPlutaValue = data.value;
             
             const plutaColor = [
@@ -178,7 +178,6 @@ window.onload = () => {
 
 function sendMessage() {
     let usernameToSend = usernameInput.value;
-    console.log(usernameToSend.length)
     let textToSend = textmessageInput.value;
     let dateToSend = new Date();
     dateToSend = dateToSend.toISOString();
