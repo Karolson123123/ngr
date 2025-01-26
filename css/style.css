@@ -1,12 +1,14 @@
 @font-face {
     font-family: 'Roboto';
-    src: local("Roboto"), url("/img_vid/Roboto/Roboto-Variable.ttf");
+    src: url("/img_vid/Roboto/Roboto-Variable.ttf");
+    font-display: swap;
 }
  
 @font-face {
     font-family: 'Roboto';
-    src: local("Roboto Italic"), url("/img_vid/Roboto/Roboto-Italic-Variable.ttf");
+    src: url("/img_vid/Roboto/Roboto-Italic-Variable.ttf");
     font-style: italic;
+    font-display: swap;
 }
 
 /* #region GŁÓWNE */
