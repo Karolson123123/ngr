@@ -26,6 +26,7 @@
     --tlo: rgb(20, 20, 20);
     --gradient-zolty: radial-gradient(closest-side at 20% 20%, rgba(58, 58, 24, 0.7) 60%, rgba(0,0,0,0.9) 900%);
     --szary: #8b8b8b;
+    --bialy: #FFFFFF;
     scroll-behavior: smooth;
     color: white;
 }
@@ -321,7 +322,7 @@ nav > div {
     flex-direction: column;
     background-color: #1a1919F0;
     width: 100%;
-    box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+    box-shadow: 0 8px 16px rgba(0, 0 , 0, 0.2);
     z-index: 1;
 }
 
