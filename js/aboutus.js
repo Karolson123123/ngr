@@ -61,7 +61,7 @@ function rozwin(element) {
 }
 
 const yearcontenttext = document.getElementById('year-content-text');
-const yearcontenttitle = document.querySelector('#year-content-text > h3');
+const yearcontenttitle = document.querySelector('#year-content-text > h1');
 const yearcontentdescription = document.querySelector('#year-content-text > p');
 const yearcontentimg = document.getElementById('year-content-img');
 const allyears = Array.from(document.querySelectorAll('.year'));

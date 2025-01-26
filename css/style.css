@@ -602,12 +602,12 @@ article {
 .card-info .title {
     all: unset;
     display: block;
-    margin-block-start: 1.33em;
-    margin-block-end: 1.33em;
-    margin-inline-start: 0px;
-    margin-inline-end: 0px;
+    margin-top: 1.33em;
+    margin-bottom: 1.33em;
     font-weight: bold;
     unicode-bidi: isolate;
+    position: relative;
+    transition: all 0.3s ease;
 }
 
 .card {
@@ -643,11 +643,6 @@ article {
     align-items: center;
     flex: 1;
     transition: color 0.3s ease;
-}
-
-.card-info .title {
-    position: relative;
-    transition: all 0.3s ease;
 }
 
 .card-info:hover .title {
@@ -708,7 +703,6 @@ article {
 .role{
     background-color: var(--zolty);
     padding: 0.25rem;
-    font-family: "roboto";
     z-index: 2;
     margin-top: -1.75rem;
     border-radius: 0.5rem;
@@ -724,6 +718,8 @@ a{
     width: 2.5rem;
     height: 2.5rem;
     filter: brightness(100);
+    object-fit: contain;
+    aspect-ratio: 1/1;
 }
 
 /* #endregion sekcja zespołu */
@@ -751,7 +747,7 @@ footer {
     margin: 0;
 }
 
-.footer-section h3 {
+.footer-section h1 {
     color: var(--zolty);
     font-size: 1.5rem;
     margin-bottom: 1rem;
@@ -759,7 +755,7 @@ footer {
     padding-bottom: 0.5rem;
 }
 
-.footer-section h3::after {
+.footer-section h1::after {
     content: '';
     position: absolute;
     bottom: 0;
