@@ -82,6 +82,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 } else if (aktualnastrona.endsWith("/")) {
                     document.getElementById("nav-glowna").classList.add("navbutton-active");
                     document.getElementById("nav-glowna").classList.remove("navbutton-notactive");
+                    button.classList.add("navbutton-notactive");
                 } else {
                     button.classList.add("navbutton-notactive");
                     button.classList.remove("navbutton-active");
