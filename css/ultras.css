@@ -38,7 +38,7 @@ main > img{
 
 @media only screen and (max-height: 900px) {
   #gallery > .story {
-    width: 60%;
+    width: 100%;
   }
   .story > #content > h1 + div {
     width: 80%;
@@ -301,43 +301,43 @@ h2{
  
 
   @media only screen and (max-width: 700px) {
-    #kropeczki{
+    #kropeczki {
       display: none;
     }
   
-    main{
+    main {
       width: 100%;
       border-radius: 0;
     }
   
-    #gallery{
+    #gallery {
       margin-top: 0;
     }
     
-    main >img{
+    main > img {
       opacity: 0.4;
       
     }
     
-    .story{
+    .story {
       left: 0;
       width: 100%;
       line-height: 175%;
     }
   
-    .story > div>h1{
+    .story > div > h1 {
       font-size: 2.7rem;
       width: 100%;
       text-align: center;
 
     }
-    .story > div > div{
+    .story > div > div {
       font-size: 1rem;
       text-wrap: wrap;
       text-align: justify;
     }
 
-    #ultras-button{
+    #ultras-button {
       width: 15rem;
       font-size: 1.15rem;
       height: 4.5rem;

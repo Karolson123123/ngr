@@ -79,44 +79,56 @@ window.onload = () => {
             activeUsers.textContent = data.count;
         }
         if (data.type === "history") {
-            data.messages.forEach(message => {
-                let czas = new Date(message.timestamp);
-                let minuty = czas.getMinutes();
-                let godziny = czas.getHours();
-                let dzien = czas.getDate();
-                let miesiac = czas.getMonth() + 1;
-                let rok = czas.getFullYear();
+            // data.messages.forEach(message => {
+            //     let czas = new Date(message.timestamp);
+            //     let minuty = czas.getMinutes();
+            //     let godziny = czas.getHours();
+            //     let dzien = czas.getDate();
+            //     let miesiac = czas.getMonth() + 1;
+            //     let rok = czas.getFullYear();
                 
-                const messageElement = document.createElement('div');
-                messageElement.classList.add('message');
-                messageElement.style.order = zamowienie;
+            //     const messageElement = document.createElement('div');
+            //     messageElement.classList.add('message');
+            //     messageElement.style.order = zamowienie;
         
-                const messageTop = document.createElement('div');
-                messageTop.classList.add('message-top');
+            //     const messageTop = document.createElement('div');
+            //     messageTop.classList.add('message-top');
                 
-                const usernameElement = document.createElement('h5');
-                usernameElement.textContent = message.username;
+            //     const usernameElement = document.createElement('h5');
+            //     usernameElement.textContent = message.username;
                 
-                const timestampElement = document.createElement('p');
-                timestampElement.textContent = `${godziny < 10 ? "0" + godziny : godziny}:${minuty < 10 ? "0" + minuty : minuty} • ${dzien < 10 ? "0" + dzien : dzien}.${miesiac < 10 ? "0" + miesiac : miesiac}.${rok}`;
+            //     const timestampElement = document.createElement('p');
+            //     timestampElement.textContent = `${godziny < 10 ? "0" + godziny : godziny}:${minuty < 10 ? "0" + minuty : minuty} • ${dzien < 10 ? "0" + dzien : dzien}.${miesiac < 10 ? "0" + miesiac : miesiac}.${rok}`;
                 
-                messageTop.appendChild(usernameElement);
-                messageTop.appendChild(timestampElement);
+            //     messageTop.appendChild(usernameElement);
+            //     messageTop.appendChild(timestampElement);
         
-                const messageBottom = document.createElement('div');
-                messageBottom.classList.add('message-bottom');
+            //     const messageBottom = document.createElement('div');
+            //     messageBottom.classList.add('message-bottom');
         
-                const textElement = document.createElement('p');
-                textElement.textContent = message.text;
+            //     const textElement = document.createElement('p');
+            //     textElement.textContent = message.text;
         
-                messageBottom.appendChild(textElement);
+            //     messageBottom.appendChild(textElement);
         
-                messageElement.appendChild(messageTop);
-                messageElement.appendChild(messageBottom);
+            //     messageElement.appendChild(messageTop);
+            //     messageElement.appendChild(messageBottom);
         
-                chat.appendChild(messageElement);
-                zamowienie--;
-            });
+            //     chat.appendChild(messageElement);
+            //     zamowienie--;
+            // });
+            chat.innerHTML = `<img src="https://plutomierz.ovh/assets/european-eagle-owl-2010346_1920.jpg">
+                            <div style="text-align: center; line-height: 2.5rem; margin-bottom: 3rem; font-size: 2rem; font-family: Consolas, Liberation Mono, Courier New, monospace; color: grey;">No niestety.<br>
+                            Czat nie działa. :/<br>
+                            Zdarza się. ¯\\_(ツ)_/¯ <br>
+                            (Ci co wiedzą.)</div>
+                            `;
+            usernameInput.style.cursor = "not-allowed";
+            usernameInput.disabled = true;
+            textmessageInput.style.cursor = "not-allowed";
+            textmessageInput.disabled = true;
+            sendMessageButton.style.cursor = "not-allowed";
+            sendMessageButton.disabled = true;
         }
         
         if (data.type === "message") {
@@ -211,7 +223,8 @@ function sendMessage() {
 fetch('/img_vid/motivationalPluta.json')
   .then(response => response.json())
   .then(motivationalPluta => {
-    let randomMotivationalPluta = motivationalPluta[Math.floor(Math.random() * motivationalPluta.length)];
+//    let randomMotivationalPluta = motivationalPluta[Math.floor(Math.random() * motivationalPluta.length)];
+    let randomMotivationalPluta = "PDW dla Roberta Kibicy";
     motivationalPlutaContainer.innerHTML = randomMotivationalPluta;
   })
   .catch(error => {
