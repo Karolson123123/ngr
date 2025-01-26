@@ -319,6 +319,10 @@
     padding: 1rem;
 }
 
+.info-container > a > img {
+    aspect-ratio: 1/1;
+}
+
 .info-container > a:hover {
     background-color: var(--cardblack);
     border-radius: 1rem;

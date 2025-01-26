@@ -35,6 +35,7 @@ const insert_component = (qcomponent, qtoreplace, tempDiv) => {
                                 element.srcset = paramValue;
                             } else {
                                 element.src = paramValue;
+                                console.log(element)
                             }
                         } else {
                             element.innerHTML += paramValue;
