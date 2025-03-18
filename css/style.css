@@ -102,13 +102,12 @@ nav > div:nth-child(2) {
 #logo {
     width: 5rem;
     height: 5rem;
-    background-image: url("/img_vid/maupka.webp");
-    background-position: center;
-    background-size: contain;
-    background-repeat: no-repeat;
     transition: transform 0.3s ease;
     position: relative;
     z-index: 2;
+}
+#logo > img{
+    height: 100%;
 }
 
 /* #logo:hover {
